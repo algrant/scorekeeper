@@ -1,0 +1,36 @@
+
+<div class="scoreContainer">
+  <h3> Score Keeper </h3>
+
+  <div class="btn-group gameButtons">
+    <a ng-click="resetScores()" class="btn btn-danger">Reset Scores</a>
+    <a ng-click="addPlayer()" class="btn btn-info">Add Player </a>
+
+  </div> <br>
+  <div class="row">
+    <div ng-repeat="player in players track by $index" class="scoreCol col-xs-{{12/players.length | floor}}">
+
+      <div class="player-name">
+        <span ng-hide="player.editing" ng-click="player.editing=true;"> {{player.name}} </span>
+        <input ng-show="player.editing" ng-model="player.name" ng-blur="player.editing=false;" autofocus id="player-name" class="form-control login-field"/>
+        <label ng-show="player.editing" class="login-field-icon fui-cross player-remove-icon" ng-click="removePlayer($index)" for="player-name" title="Remove Player"></label>
+      </div>
+
+      <span ng-repeat="score in player.scores track by $index" class="scoreBox"> 
+        <span class = "additive{{ score == 0? '' : score > 0? ' positiveScore' : ' negativeScore' }}" >
+          {{ score | absolute }} 
+        </span>
+         <span class = "cumulative">
+           {{ cumulativeScore(player.scores, $index) }}
+         </span>
+      </span> 
+
+    <form novalidate class="input-group">
+      <span class="input-group-btn">
+          <button ng-click="player.newScore && addScore(player);" class="btn btn-default"> <span class="fui-check"></span> </button>
+      </span>
+      <input type="number" ng-model="player.newScore" class="form-control newScore"/>
+    </form>
+    </div>
+  </div>
+</div>

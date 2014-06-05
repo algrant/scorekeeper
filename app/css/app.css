@@ -1,30 +1,92 @@
 /* app css stylesheet */
 
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+h3 {
+  padding-left:10px;
 }
 
-.menu:before {
-  content: "[";
+.gameButtons {
+  margin:auto;
 }
 
-.menu:after {
-  content: "]";
+.scoreContainer {
+  width:600px;
 }
 
-.menu > li {
-  display: inline;
+.scoreCol {
+  display:block;
+  float:left;
+  margin:10px;
+  color:grey;
+  max-width:200px;
 }
 
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
+.scoreBox .cumulative, .scoreBox .additive{
+  display:block;
+  text-align:right;
+  font-family:monospace;
+  text-decoration: line-through;
 }
 
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
+.additive {
+  display:block;
+  border-bottom: 1px grey solid;
+}
+
+.cumulative {
+  display:block;
+  padding-bottom:5px;
+}
+
+
+.scoreBox:last-of-type{
+  color:black;
+}
+
+.scoreBox:nth-last-of-type(2) .cumulative{
+  color:black;
+  text-decoration: none;
+}
+
+.scoreBox:last-of-type .cumulative{
+  font-weight:bold;
+  text-decoration: none;
+}
+.scoreBox:last-of-type .additive{
+  border-bottom: 1px black solid;
+  text-decoration: none;
+}
+
+
+.newScore {
+  text-align:right;
+}
+
+.positiveScore:before {
+  content:'+';
+  float:left;
+}
+.negativeScore:before {
+  content:'-';
+  float:left;
+}
+
+.input-group>button.input-group-addon{
+  line-height:1;
+}
+
+.player-name {
+  position:relative;
+}
+
+.player-remove-icon{
+  position: absolute;
+  right: 15px;
+  top: 13px;
+  background: rgb(204, 204, 204);
+  line-height: 1;
+  margin: auto;
+  width: 20.5px;
+  height: 21px;
+  padding: 3px;
+  border-radius: 10px;
 }
