@@ -13,7 +13,7 @@
       <div class="player-name">
         <span ng-hide="player.editing" ng-click="player.editing=true;"> {{player.name}} </span>
         <input ng-show="player.editing" ng-model="player.name" ng-blur="player.editing=false;" autofocus id="player-name" class="form-control login-field"/>
-        <label ng-show="player.editing" class="login-field-icon fui-cross player-remove-icon" ng-click="removePlayer($index)" for="player-name" title="Remove Player"></label>
+        <label ng-show="player.editing" class="login-field-icon fui-cross player-remove-icon" ng-mousedown="player.editing=true;removePlayer($index)" for="player-name" title="Remove Player"></label>
       </div>
 
       <span ng-repeat="score in player.scores track by $index" class="scoreBox"> 
