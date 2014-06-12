@@ -9,15 +9,24 @@ h3 {
 }
 
 .scoreContainer {
-  
+  overflow-x:auto;
+}
+
+.scoreTable {
+ display: table; 
+ table-layout:fixed;
+ border-spacing: 10px;
+}
+
+.scoreRow {
+  display: table-row;
 }
 
 .scoreCol {
-  display:block;
-  float:left;
-  margin:10px;
-  color:grey;
-  max-width:200px;
+  display:table-cell;
+  color:#225;
+  width: 120px;
+  vertical-align:top;
 }
 
 .scoreBox .cumulative, .scoreBox .additive{
@@ -59,6 +68,7 @@ h3 {
 
 .newScore {
   text-align:right;
+  width:100%;
 }
 
 .positiveScore:before {
@@ -70,24 +80,40 @@ h3 {
   float:left;
 }
 
-.input-group>button.input-group-addon{
-  line-height:1;
-}
 
-.player-name {
+/* editable removeable cell*/
+
+.editable-removable-cell {
   position:relative;
 }
 
-.player-remove-icon{
-  z-index:5;
-  position: absolute;
-  right: 12px;
-  top: 11px;
-  background: rgb(204, 204, 204);
-  line-height: 1;
-  margin: auto;
-  width: 20.5px;
-  height: 21px;
-  padding: 3px;
-  border-radius: 10px;
+.editable-removable-view {
+  display:block;
+  padding: 3px 2px;
+}
+
+.editable-removable-input {
+  width:100%;
+}
+
+.editable-removable-remove-icon {
+  position:absolute;
+  width: 1em;
+  height: 1em;
+  border-radius: .5em;
+  background:#444;
+  top:4px;
+  right:3px;
+  text-align: center;
+  color:white;
+}
+
+.editable-removable-remove-icon::before{
+  content: '\00D7';
+  }
+
+/* submit with button on left */
+
+.input-group {
+  
 }
