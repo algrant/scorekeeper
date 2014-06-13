@@ -1,0 +1,24 @@
+<table id="ohHellTable">
+  <thead>
+    <tr> 
+      <th> t </th>
+      <th> + </th>
+      <th ng-repeat="player in players" colspan=3> 
+          <div class="editable-removable-cell">
+            <span class="editable-removable-view" ng-hide="player.editing" ng-click="player.editing=true;"> {{player.name}} </span>
+            <input class="editable-removable-input" ng-show="player.editing" ng-model="player.name" ng-blur="player.editing=false;" autofocus id="player-name" />
+            <label class="editable-removable-remove-icon" ng-show="player.editing" ng-mousedown="player.editing=true;removePlayer($index)" for="player-name" title="Remove Player"></label>
+          </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="trick in trickData track by $index"> 
+      <td> {{trick.numberOfTricks}} </td>
+      <td> {{trick.trump}} </td>
+      <td ng-repeat-start="player in players"> bid </td>
+      <td> made </td>
+      <td ng-repeat-end> score </td>
+    </tr>
+  </tbody>
+</table>

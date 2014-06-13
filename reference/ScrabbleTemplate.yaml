@@ -1,0 +1,13 @@
+GameName: Scrabble
+
+Tags: [Word, Puzzle, Strategy]
+
+Players:
+  min: 2
+
+GameType: SimpleAddition
+
+GameOptions:
+  roundBased: True
+  likelyAdditions: [1,5,10]
+  allowNegatives: False

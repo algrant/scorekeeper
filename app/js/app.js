@@ -11,6 +11,8 @@ angular.module('scoreKeeperApp', [
 ]).
 config(['$routeProvider', function($routeProvider) {
 
+  $routeProvider.when('/home', {templateUrl: 'partials/home.html', controller: 'HomePageCtrl'});
+  $routeProvider.when('/ohHell', {templateUrl: 'partials/ohhell.html', controller: 'OhHellCtrl'});
   $routeProvider.when('/simpleScore', {templateUrl: 'partials/simpleScoreSheet.html', controller: 'SimpleScoreCtrl'});
-  $routeProvider.otherwise({redirectTo: '/simpleScore'});
+  $routeProvider.otherwise({redirectTo: '/home'});
 }]);

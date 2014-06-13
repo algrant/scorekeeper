@@ -50,3 +50,33 @@ describe('SimpleScoreCtrl', function(){
   })
 
 });
+
+
+describe('OhHellCtrl', function(){
+  var scope = {}, 
+      ctrl;
+
+  beforeEach( function(){
+    module('scoreKeeperApp.controllers');
+    inject(function($controller) {
+      ctrl = $controller('OhHellCtrl', {$scope:scope});
+    });
+  });
+
+  it('should create "players" model with 3 players', function(){
+    expect(scope.players.length).toEqual(3);
+  });
+
+  it('should have a function to generate trick sizes', function(){
+    var fourPlayer = scope.tricksPerPlayer(4);
+    expect(fourPlayer).toEqual([1,2,3,4,5,6,7,8,9,10,11,12,13,13,13,13,12,11,10,9,8,7,6,5,4,3,2,1]);
+
+    var threePlayerMaxEight = scope.tricksPerPlayer(3,8);
+    expect(threePlayerMaxEight).toEqual([1,2,3,4,5,6,7,8,8,8,7,6,5,4,3,2,1]);
+  });
+
+  it('should initialise an empty score sheet', function(){
+    expect(scope.myData).toEqual([]);
+  });
+
+});

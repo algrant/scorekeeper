@@ -1,0 +1,13 @@
+GameName: The Dice Game
+
+Tags: [Dice, Luck, Chance]
+
+Players:
+  min: 2
+
+GameType: SimpleAddition
+
+GameOptions:
+  roundBased: False
+  likelyAdditions: [50,100,500]
+  allowNegatives: True

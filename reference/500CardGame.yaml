@@ -1,0 +1,69 @@
+GameType: SimpleAddition
+
+GameName: 500 Card Game
+
+Tags: [Cards, Trick taking, Strategy]
+
+#Asked before each game, defaults as shown
+PlayingOptions:
+  numberOfPlayers: 2
+
+  # I'd love to default to last players who played, but maybe that's silly
+  playerNames: ["Player 1","Player 2"]
+
+  # When does the game end?
+  gameEnd:
+    notify:True
+    options:
+      points:
+        determineEnd: True
+        greaterThan:500
+      rounds:
+        determineEnd: False
+        greaterThan: 12
+
+  # Always display the winner
+  showWinner: True
+
+# Can be modified somewhere and saved as a new template?
+GameOptions:
+  # You definitely need a minimum of 2 people to play
+  numberOfPlayers:
+    min: 2
+
+  # If true every person must score something every round
+  roundBased: True
+
+  #Shows the round numbers if True
+  showRoundNumbers: False
+
+  #Scoring
+  roundScoring:
+    rowInputs:
+      - 
+        name: trump
+        type: string
+        options: [Hearts, Clubs, Diamonds, Spades, No Trump]
+
+    playerInputs:
+      - 
+        name: bid
+        # Can either be an integer or None (if the other player bids)
+        type: [integer, None]
+        likelyAdditions: [1,5]
+      - 
+        name: made
+        type: integer
+        likelyAdditions: [1,5]
+
+    playerOutput:
+      value:
+
+    output: 
+      # No rules here, the output is the input.
+      type: "input"
+
+
+  # Defaults to highScoreWins True, 
+  # if False then low score wins.
+  highScoreWins: False

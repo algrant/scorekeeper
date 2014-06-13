@@ -1,0 +1,53 @@
+
+- type: "Cumulative"
+
+- Column Headers: 
+  - ["t","+", PLAYERNAMES]
+
+- Row - for trick in tricks:
+    {
+      handSize: trick.handsize, 
+      trump: {type:"editable", model:trick.trump},
+      score-inputs:
+          [ 
+            {
+              name: "bid", 
+              score-input: between(0, handSize)
+            }, 
+            {
+              name:"made", 
+              score-input: between(0, handSize)
+            }
+          ]
+      score-output: function(){
+
+      }
+    }
+
+- ScoringType: see http://en.wikipedia.org/wiki/Oh_Hell#Scoring
+  - "Basic"
+    - options: {
+      perMade:1, 
+      bonus:10 // variant, 5
+    }
+    function(bid,made,options){
+      var score = made*options.perMade;
+      if (bid === made){
+        score += options.bonus;
+      }
+      return score;
+    }
+  -"Exact with Penalty"
+    - options = {
+      perMade:1,
+      bonus:5,
+      penaltyPer: -1 // exact = 0
+    }
+    - function(bid,made,options){
+      var score = -Math.abs(bid-made)*options.penaltyPer;
+      if (bid === made){
+        score += options.bonus + made*options.perMade
+      }
+      return score
+    }
+  - ""

@@ -117,3 +117,31 @@ h3 {
 .input-group {
   
 }
+
+
+/* Oh Hell Table */
+#ohHellTable {
+
+}
+
+
+
+#ohHellTable td, #ohHellTable th{
+  padding:5px;
+  border-color: #999;
+  border-style: solid;
+  border-width: 0 1px 1px 1px;
+  table-layout: fixed;
+}
+
+#ohHellTable tr td:last-child, #ohHellTable tr th:last-child{
+  border-right-width: 0px;
+};
+
+#ohHellTable tr:last-child th, #ohHellTable tr:last-child td{
+  border-bottom-width: 0px;
+};
+
+#ohHellTable tr:last-child {
+  background:red;
+};

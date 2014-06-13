@@ -1,0 +1,56 @@
+GameType: SimpleAddition
+
+GameName: Hearts
+
+Tags: [Cards, Trick taking, Strategy]
+
+#Asked before each game, defaults as shown
+PlayingOptions:
+  numberOfPlayers: 4
+
+  # I'd love to default to last players who played, but maybe that's silly
+  playerNames: ["North","East", "South", "West"]
+
+  # When does the game end?
+  gameEnd:
+    notify:True
+    options:
+      points:
+        determineEnd: True
+        greaterThan:100
+      rounds:
+        determineEnd: False
+        greaterThan: 12
+
+  # Always display the winner
+  showWinner: True
+
+# Can be modified somewhere and saved as a new template?
+GameOptions:
+  # You definitely need a minimum of 2 people to play
+  numberOfPlayers:
+    min: 2
+
+  # If true every person must score something every round
+  roundBased: True
+
+  #Shows the round numbers if True
+  showRoundNumbers: False
+
+  #Scoring
+  score:
+    input:
+      # I guess types will be added as needed by the parser.
+      type: "positiveInteger"
+
+      # Likely additions are going to be the buttons for the input
+      likelyAdditions: [1,5,10]
+
+    output: 
+      # No rules here, the output is the input.
+      type: "input"
+
+
+  # Defaults to highScoreWins True, 
+  # if False then low score wins.
+  highScoreWins: False

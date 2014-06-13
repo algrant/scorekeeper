@@ -1,0 +1,72 @@
+- Column Headers: 
+  - [" ", PLAYERNAMES]
+- Columns:
+  - ["description", PLAYERINPUT, PLAYERSCORES]
+- Rows : 
+    [{
+      name:"fields", 
+      scores:
+        {
+          "0-1":-1,
+          "2":1,
+          "3":2,
+          "4":3,
+          "5+":4
+        }
+      },
+      {
+        name:"pastures",
+        scores:
+          {
+            "0-1":-1,
+            "2":1,
+            "3":2,
+            "4":3,
+            "5+":4
+          }
+      },
+      ..."pastures", "grains", "vegetables","sheep","pigs","cows"...
+      {
+        name:"unused spaces",
+        score-input: POSITIVENUMBER, // Could specify between 0 and 15
+        score: input*-1
+      }, 
+      ... "fenced stables" ...
+      {
+        name:"house type",
+        type:"non-scoring", (?)
+        score-input: ["Wood", "Clay", "Stone"],
+        score-value: [0,1,2] (?)
+      },
+      {
+        name:"number of rooms", 
+        scores: {
+          "2": 2* "house type".score-value (?), // Are helper scores good???
+          "3": 3* "house type".score-value      // We could do it differently...
+        }
+      },
+      {
+        name:"family members", 
+        score-input: [2,3,4,5],
+        score-value: [6,9,12,15]
+      },
+      {
+        name:"Begging Cards",
+        score-input: POSITIVENUMBER,
+        score-value: "input"*-3
+      },
+      {
+        name:"Points for cards", 
+        score-input: POSITIVENUMBER,
+        score-value: "input"
+      },
+      {
+        name:"Bonus points", 
+        score-input: POSITIVENUMBER,
+        score-value: "input"
+      }
+      {
+        name:"Total",
+        score-value: SUM-ABOVE
+      }
+    ]
